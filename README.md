@@ -1,6 +1,5 @@
 # 🚩 DSCI Rewards Vendor for DeSci Companies using CureLedger Compliance Infrastructure 🤖
 
-![readme-2](https://github.com/scaffold-eth/se-2-challenges/assets/55535804/b427171f-3f20-41a5-b76f-05d67e2b9959)
 
 This dApp is designed to help DeSci companies easily and provably comply with global health regulations by delivering DSCI tokens to DeSci companies who need the CureLedger product. It extends the concepts of the Scaffold-ETH 2 `Token Vendor` challenge to provide real-world applications for decentralized science.
 
