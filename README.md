@@ -1,263 +1,157 @@
-# 🚩 Challenge 2: 🏵 Token Vendor 🤖
+# 🚩 DSCI Rewards Vendor for DeSci Companies using CureLedger Compliance Infrastructure 🤖
 
 ![readme-2](https://github.com/scaffold-eth/se-2-challenges/assets/55535804/b427171f-3f20-41a5-b76f-05d67e2b9959)
 
-🤖 Smart contracts are kind of like "always on" _vending machines_ that **anyone** can access. Let's make a decentralized, digital currency. Then, let's build an unstoppable vending machine that will buy and sell the currency. We'll learn about the "approve" pattern for ERC20s and how contract to contract interactions work.
+This dApp is designed to help DeSci companies easily and provably comply with global health regulations by delivering DSCI tokens to DeSci companies who need the CureLedger product. It extends the concepts of the Scaffold-ETH 2 `Token Vendor` challenge to provide real-world applications for decentralized science.
 
-🏵 Create `YourToken.sol` smart contract that inherits the **ERC20** token standard from OpenZeppelin. Set your token to `_mint()` **1000** (\* 10 \*\* 18) tokens to the `msg.sender`. Then create a `Vendor.sol` contract that sells your token using a payable `buyTokens()` function.
+🏵 Users can deploy smart contracts to create and distribute ERC20 tokens as rewards. The vendor contracts must be manually funded using the `/inspect-contracts` panel to facilitate token distribution.
 
-🎛 Edit the frontend that invites the user to input an amount of tokens they want to buy. We'll display a preview of the amount of ETH it will cost with a confirm button.
-
-🔍 It will be important to verify your token's source code in the block explorer after you deploy. Supporters will want to be sure that it has a fixed supply and you can't just mint more.
-
-🌟 The final deliverable is an app that lets users purchase your ERC20 token, transfer it, and sell it back to the vendor. Deploy your contracts on your public chain of choice and then `yarn vercel` your app to a public web server. Submit the url on [SpeedRunEthereum.com](https://speedrunethereum.com)!
-
-> 💬 Meet other builders working on this challenge and get help in the [Challenge 2 Telegram](https://t.me/joinchat/IfARhZFc5bfPwpjq)!
+🎉 This project credits **Scaffold-ETH 2** and **SpeedRun Ethereum** for its foundational content and inspiration.
 
 ---
 
-## Checkpoint 0: 📦 Environment 📚
+## Features
 
-Before you begin, you need to install the following tools:
+- Deploy ERC20 tokens for incentivizing data contributions and rewarding compliance.
+- Use a `Vendor` contract as a decentralized vending machine for buying and selling tokens.
+- Fully integrated with CureLedger's compliance infrastructure for decentralized science.
+- Manual funding of the `Vendor` contract via the `/inspect-contracts` panel.
 
-- [Node (>= v18.17)](https://nodejs.org/en/download/)
-- Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
+---
+
+## 🚀 Getting Started
+
+Follow these steps to set up and deploy the project:
+
+### 1. 📦 Environment Setup
+
+Before you begin, ensure the following tools are installed:
+
+- [Node.js (>= v18.17)](https://nodejs.org/en/download/)
+- [Yarn](https://yarnpkg.com/getting-started/install)
 - [Git](https://git-scm.com/downloads)
 
-Then download the challenge to your computer and install dependencies by running:
+Clone the repository and install dependencies:
 
 ```sh
-git clone https://github.com/scaffold-eth/se-2-challenges.git challenge-2-token-vendor
-cd challenge-2-token-vendor
-git checkout challenge-2-token-vendor
+git clone https://github.com/your-repo/dsci-rewards-vendor.git
+cd dsci-rewards-vendor
 yarn install
-```
 
-> in the same terminal, start your local network (a blockchain emulator in your computer):
+## 2. 🌐 Start the Local Environment
+
+Start a local blockchain and deploy your contracts:
+
+In the first terminal:
 
 ```sh
 yarn chain
-```
 
-> in a second terminal window, 🛰 deploy your contract (locally):
+In the second terminal:
 
-```sh
-cd challenge-2-token-vendor
 yarn deploy
-```
 
-> in a third terminal window, start your 📱 frontend:
+In the third terminal:
 
-```sh
-cd challenge-2-token-vendor
 yarn start
 ```
 
-📱 Open http://localhost:3000 to see the app.
+📱 Open http://localhost:3000 to view the app.
 
-> 👩‍💻 Rerun `yarn deploy` whenever you want to deploy new contracts to the frontend. If you haven't made any contract changes, you can run `yarn deploy --reset` for a completely fresh deploy.
+💻 Key Components
 
----
+🛠 Vendor Contract
+The Vendor contract acts as a decentralized vending machine for your ERC20 tokens. After deploying the contracts, manually fund the Vendor contract using the /inspect-contracts panel to enable token distribution.
 
-## Checkpoint 1: 🏵Your Token 💵
+🔍 Manual Funding
+To ensure proper functionality, fund the Vendor contract manually from the /debug page
 
-> 👩‍💻 Edit `YourToken.sol` to inherit the **ERC20** token standard from OpenZeppelin
 
-> Mint **1000** (\* 10 \*\* 18) to your frontend address using the `constructor()`.
+Navigate to the /debug panel in the frontend.
 
-(Your frontend address is the address in the top right of http://localhost:3000)
+Send tokens to the Vendor contract address to fund its inventory.
 
-> You can `yarn deploy --reset` to deploy your contract until you get it right.
+Users can then buy tokens directly from the Vendor.
 
-### 🥅 Goals
 
-- [ ] Can you check the `balanceOf()` your frontend address in the `Debug Contracts` tab? (**YourToken** contract)
-- [ ] Can you `transfer()` your token to another account and check _that_ account's `balanceOf`?
+🧪 Testing Your Setup
 
-![debugContractsYourToken](https://github.com/scaffold-eth/se-2-challenges/assets/55535804/5fb4daeb-5d05-4522-96b3-76f052a68418)
 
-> 💬 Hint: Use an incognito window to create a new address and try sending to that new address. Can use the `transfer()` function in the `Debug Contracts` tab.
+Use the Debug Contracts tab to verify the functionality:
 
----
+Check your token balances using balanceOf.
 
-## Checkpoint 2: ⚖️ Vendor 🤖
+Transfer tokens between accounts and confirm their balances.
 
-> 👩‍💻 Edit the `Vendor.sol` contract with a **payable** `buyTokens()` function
+Test the buy and sell functionality of the Vendor contract.
 
-Use a price variable named `tokensPerEth` set to **100**:
+📝 Goals
 
-```solidity
-uint256 public constant tokensPerEth = 100;
-```
+ Verify the Vendor address has a sufficient token balance (balanceOf).
+ 
+ Buy tokens by sending ETH to the Vendor contract.
+ 
+ Sell tokens back to the Vendor contract.
 
-> 📝 The `buyTokens()` function in `Vendor.sol` should use `msg.value` and `tokensPerEth` to calculate an amount of tokens to `yourToken.transfer()` to `msg.sender`.
+🌐Deploying to a Public Network
+To deploy on a public EVM-compatible network, follow these steps:
 
-> 📟 Emit **event** `BuyTokens(address buyer, uint256 amountOfETH, uint256 amountOfTokens)` when tokens are purchased.
+Edit the defaultNetwork in hardhat.config.ts to your desired network.
 
-Edit `packages/hardhat/deploy/01_deploy_vendor.js` to deploy the `Vendor` (uncomment Vendor deploy lines).
+Fund your deployer address with ETH using a wallet or public faucet.
 
-Uncomment the `Buy Tokens` sections in `packages/nextjs/app/token-vendor/page.tsx` to show the UI to buy tokens on the Token Vendor tab.
+Deploy the contracts:
 
-### 🥅 Goals
+sh
+Copy
+Edit
+yarn deploy --network <your-network>
+🔗 Verifying Contracts
+Run the following command to verify your contracts on Etherscan:
 
-- [ ] When you try to buy tokens from the vendor, you should get an error: **'ERC20: transfer amount exceeds balance'**
+sh
+Copy
+Edit
+yarn verify --network <your-network>
+Provide the verified contract addresses to your users to ensure transparency.
 
-⚠️ This is because the Vendor contract doesn't have any YourTokens yet!
+🚢 Deploying the Frontend
+Once the contracts are deployed, deploy the frontend app:
 
-⚔️ Side Quest: send tokens from your frontend address to the Vendor contract address and _then_ try to buy them.
+Edit scaffold.config.ts to target the public network:
 
-> ✏️ We can't hard code the vendor address like we did above when deploying to the network because we won't know the vendor address at the time we create the token contract.
+javascript
+Copy
+Edit
+targetNetwork: chains.<your-network>;
+Run the Vercel deployment:
 
-> ✏️ So instead, edit `YourToken.sol` to mint the tokens to the `msg.sender` (deployer) in the **constructor()**.
+sh
+Copy
+Edit
+yarn vercel
+Share the generated public URL with your users.
 
-> ✏️ Then, edit `deploy/01_deploy_vendor.js` to transfer 1000 tokens to vendor address.
+🏗 Credits
+This project is built on Scaffold-ETH 2 and the SpeedRun Ethereum framework.
 
-```js
-await yourToken.transfer(
-  vendorDeployment.address,
-  hre.ethers.parseEther("1000")
-);
-```
+Scaffold-ETH 2: https://github.com/scaffold-eth/scaffold-eth-2
+SpeedRun Ethereum: https://speedrunethereum.com
+🔧 Configuration Tips
+For production-grade deployments:
 
-> 🔎 Look in `packages/nextjs/app/token-vendor/page.tsx` for code to uncomment to display the Vendor ETH and Token balances.
+Obtain your own API keys for services like Alchemy and Etherscan.
+Store environment variables securely (e.g., .env.local or Vercel/system environment config).
+🎯 Checklist
+ Contracts deployed and verified on a public network.
+ Vendor contract funded with tokens.
+ Frontend deployed and connected to the network.
+ Users can buy and sell tokens seamlessly.
+🌟 Next Steps
+Expand functionality for additional DeSci use cases.
+Share the app with CureLedger customers to enhance adoption.
+Continue iterating on compliance-focused decentralized solutions.
+Happy building! 🚀
 
-> You can `yarn deploy --reset` to deploy your contract until you get it right.
 
-![TokenVendorBuy](https://github.com/scaffold-eth/se-2-challenges/assets/55535804/7669cc68-e942-4630-95c8-91cd21af5ba0)
 
-### 🥅 Goals
-
-- [ ] Does the `Vendor` address start with a `balanceOf` **1000** in `YourToken` on the `Debug Contracts` tab?
-- [ ] Can you buy **10** tokens for **0.1** ETH?
-- [ ] Can you transfer tokens to a different account?
-
-> 📝 Edit `Vendor.sol` to inherit _Ownable_.
-
-`contract Vendor is Ownable {`
-
-⚠️ You will also need to uncomment the import of Ownable.sol contract!
-
-In `deploy/01_deploy_vendor.js` you will need to call `transferOwnership()` on the `Vendor` to make _your frontend address_ the `owner`:
-
-```js
-await vendor.transferOwnership("**YOUR FRONTEND ADDRESS**");
-```
-
-### 🥅 Goals
-
-- [ ] Is your frontend address the `owner` of the `Vendor`?
-
-> 📝 Finally, add a `withdraw()` function in `Vendor.sol` that lets the owner withdraw all the ETH from the vendor contract.
-
-### 🥅 Goals
-
-- [ ] Can **only** the `owner` withdraw the ETH from the `Vendor`?
-
-### ⚔️ Side Quests
-
-- [ ] What if you minted **2000** and only sent **1000** to the `Vendor`?
-
----
-
-## Checkpoint 3: 🤔 Vendor Buyback 🤯
-
-👩‍🏫 The hardest part of this challenge is to build your `Vendor` to buy the tokens back.
-
-🧐 The reason why this is hard is the `approve()` pattern in ERC20s.
-
-😕 First, the user has to call `approve()` on the `YourToken` contract, approving the `Vendor` contract address to take some amount of tokens.
-
-🤨 Then, the user makes a _second transaction_ to the `Vendor` contract to `sellTokens(uint256 amount)`.
-
-🤓 The `Vendor` should call `yourToken.transferFrom(msg.sender, address(this), theAmount)` and if the user has approved the `Vendor` correctly, tokens should transfer to the `Vendor` and ETH should be sent to the user.
-
-> 📝 Edit `Vendor.sol` and add a `sellTokens(uint256 amount)` function!
-
-⚠️ You will need extra UI for calling `approve()` before calling `sellTokens(uint256 amount)`.
-
-🔨 Use the `Debug Contracts` tab to call the approve and sellTokens() at first but then...
-
-🔍 Look in the `packages/nextjs/app/token-vendor/page.tsx` for the extra approve/sell UI to uncomment!
-
-![VendorBuyBack](https://github.com/scaffold-eth/se-2-challenges/assets/55535804/99063aaa-368d-4156-997d-08dff99af11b)
-
-### 🥅 Goal
-
-- [ ] Can you sell tokens back to the vendor?
-- [ ] Do you receive the right amount of ETH for the tokens?
-
-### ⚔️ Side Quests
-
-- [ ] Should we disable the `owner` withdraw to keep liquidity in the `Vendor`?
-- [ ] It would be a good idea to display Sell Token Events. Create an **event** `SellTokens(address seller, uint256  amountOfTokens, uint256 amountOfETH)` and `emit` it in your `Vendor.sol` and uncomment `SellTokens Events` section in your `packages/nextjs/app/events/page.tsx` to update your frontend.
-
-  ![Events](https://github.com/scaffold-eth/se-2-challenges/assets/55535804/662c96b5-d53f-4efa-af4a-d3106bfd47f0)
-
-### ⚠️ Test it!
-
-- Now is a good time to run `yarn test` to run the automated testing function. It will test that you hit the core checkpoints. You are looking for all green checkmarks and passing tests!
-
----
-
-## Checkpoint 4: 💾 Deploy your contracts! 🛰
-
-📡 Edit the `defaultNetwork` to [your choice of public EVM networks](https://ethereum.org/en/developers/docs/networks/) in `packages/hardhat/hardhat.config.ts`
-
-🔐 You will need to generate a **deployer address** using `yarn generate` This creates a mnemonic and saves it locally.
-
-👩‍🚀 Use `yarn account` to view your deployer account balances.
-
-⛽️ You will need to send ETH to your deployer address with your wallet, or get it from a public faucet of your chosen network.
-
-🚀 Run `yarn deploy` to deploy your smart contract to a public network (selected in `hardhat.config.ts`)
-
-> 💬 Hint: You can set the `defaultNetwork` in `hardhat.config.ts` to `sepolia` **OR** you can `yarn deploy --network sepolia`.
-
-> 💬 Hint: For faster loading of your _"Events"_ page, consider updating the `fromBlock` passed to `useScaffoldEventHistory` in [`packages/nextjs/app/events/page.tsx`](https://github.com/scaffold-eth/se-2-challenges/blob/challenge-2-token-vendor/packages/nextjs/app/events/page.tsx) to `blocknumber - 10` at which your contract was deployed. Example: `fromBlock: 3750241n` (where `n` represents its a [BigInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt)). To find this blocknumber, search your contract's address on Etherscan and find the `Contract Creation` transaction line.
-
----
-
-## Checkpoint 5: 🚢 Ship your frontend! 🚁
-
-✏️ Edit your frontend config in `packages/nextjs/scaffold.config.ts` to change the `targetNetwork` to `chains.sepolia` or any other public network.
-
-💻 View your frontend at http://localhost:3000 and verify you see the correct network.
-
-📡 When you are ready to ship the frontend app...
-
-📦 Run `yarn vercel` to package up your frontend and deploy.
-
-> Follow the steps to deploy to Vercel. Once you log in (email, github, etc), the default options should work. It'll give you a public URL.
-
-> If you want to redeploy to the same production URL you can run `yarn vercel --prod`. If you omit the `--prod` flag it will deploy it to a preview/test URL.
-
-> 🦊 Since we have deployed to a public testnet, you will now need to connect using a wallet you own or use a burner wallet. By default 🔥 `burner wallets` are only available on `hardhat` . You can enable them on every chain by setting `onlyLocalBurnerWallet: false` in your frontend config (`scaffold.config.ts` in `packages/nextjs/`)
-
-#### Configuration of Third-Party Services for Production-Grade Apps.
-
-By default, 🏗 Scaffold-ETH 2 provides predefined API keys for popular services such as Alchemy and Etherscan. This allows you to begin developing and testing your applications more easily, avoiding the need to register for these services.  
-This is great to complete your **SpeedRunEthereum**.
-
-For production-grade applications, it's recommended to obtain your own API keys (to prevent rate limiting issues). You can configure these at:
-
-- 🔷`ALCHEMY_API_KEY` variable in `packages/hardhat/.env` and `packages/nextjs/.env.local`. You can create API keys from the [Alchemy dashboard](https://dashboard.alchemy.com/).
-
-- 📃`ETHERSCAN_API_KEY` variable in `packages/hardhat/.env` with your generated API key. You can get your key [here](https://etherscan.io/myapikey).
-
-> 💬 Hint: It's recommended to store env's for nextjs in Vercel/system env config for live apps and use .env.local for local testing.
-
----
-
-## Checkpoint 6: 📜 Contract Verification
-
-Run the `yarn verify --network your_network` command to verify your contracts on etherscan 🛰
-
-👀 You may see an address for both YouToken and Vendor. You will want the Vendor address.
-
-👉 Search this address on Etherscan to get the URL you submit to 🏃‍♀️[SpeedRunEthereum.com](https://speedrunethereum.com).
-
----
-
-> 🏃 Head to your next challenge [here](https://speedrunethereum.com).
-
-> 💬 Problems, questions, comments on the stack? Post them to the [🏗 scaffold-eth developers chat](https://t.me/joinchat/F7nCRK3kI93PoCOk)
