@@ -4,7 +4,7 @@ import React, { useCallback, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Bars3Icon, BoltIcon, BugAntIcon, CircleStackIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, BoltIcon, CircleStackIcon } from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick } from "~~/hooks/scaffold-eth";
 
@@ -20,7 +20,7 @@ export const menuLinks: HeaderMenuLink[] = [
     href: "/",
   },
   {
-    label: "Claim DSCI Rewards",
+    label: "DSCI BUIDLer Rewards",
     href: "/questions",
     icon: <CircleStackIcon className="h-4 w-4" />,
   },
@@ -29,11 +29,7 @@ export const menuLinks: HeaderMenuLink[] = [
     href: "/events",
     icon: <BoltIcon className="h-4 w-4" />,
   },
-  {
-    label: "Inspect Contracts",
-    href: "/debug",
-    icon: <BugAntIcon className="h-4 w-4" />,
-  },
+  
 ];
 
 export const HeaderMenuLinks = () => {
@@ -49,7 +45,7 @@ export const HeaderMenuLinks = () => {
               href={href}
               passHref
               className={`${
-                isActive ? "bg-secondary shadow-md" : ""
+                isActive ? "bg-primary shadow-md" : ""
               } hover:bg-secondary hover:shadow-md focus:!bg-secondary active:!text-neutral py-1.5 px-3 text-sm rounded-full gap-2 grid grid-flow-col`}
             >
               {icon}
@@ -100,10 +96,10 @@ export const Header = () => {
         </div>
         <Link href="/" passHref className="hidden xl:flex items-center gap-2 ml-4 mr-6 shrink-0">
           <div className="flex relative w-10 h-10">
-            <Image alt="SE2 logo" className="cursor-pointer" fill src="/logo.svg" />
+            <Image alt="CureLedger logo" className="cursor-pointer" fill src="/logo.png" />
           </div>
           <div className="flex flex-col">
-            <span className="font-bold leading-tight">DSciLife</span>
+            <span className="font-bold leading-tight">CureLedger</span>
             <span className="text-xs">Empowering Human Health Innovation</span>
           </div>
         </Link>
