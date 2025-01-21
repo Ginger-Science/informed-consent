@@ -9,9 +9,9 @@ const baseUrl = process.env.VERCEL_URL
   : `http://localhost:${process.env.PORT || 3000}`;
 const imageUrl = `${baseUrl}/thumbnail.jpg`;
 
-const title = "DSCI-Core | DSciLife";
-const titleTemplate = "%s | DSciLife";
-const description = "The Verifiable Health Data Marketplace";
+const title = "CureLedger | CureLedger";
+const titleTemplate = "%s | CureLedger";
+const description = "Verifiable Health Data Infrastucture";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
