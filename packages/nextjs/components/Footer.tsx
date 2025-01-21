@@ -58,7 +58,7 @@ export const Footer = () => {
                 rel="noreferrer"
               >
                 
-                <span className="link">DSciLife</span>
+                <span className="link">DrCrossDAO</span>
               </a>
             </div>
             <span>·</span>
