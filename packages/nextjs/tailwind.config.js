@@ -9,22 +9,22 @@ module.exports = {
     themes: [
       {
         light: {
-          primary: "#D7C7FF", // Very light violet
-          "primary-content": "#1A1A1D", // Cool black
-          secondary: "#B3A7FF", // Light violet
-          "secondary-content": "#1A1A1D",
-          accent: "#7C83DB", // Bright periwinkle/violet
-          "accent-content": "#1A1A1D",
-          neutral: "#E6E6E6", // Light grayscale
-          "neutral-content": "#1A1A1D",
-          "base-100": "#F3F0FF", // Light violet background
-          "base-200": "#E6E6FF", // Light violet
-          "base-300": "#D7C7FF", // Very light violet
-          "base-content": "#1A1A1D", // Cool black text
-          info: "#7C83DB", // Bright periwinkle/violet for info
-          success: "#34EEB6",
-          warning: "#FFCF72",
-          error: "#FF8863",
+          primary: "#56c5fb", // Bright sky blue
+          "primary-content": "#FFFFFF", // White text content
+          secondary: "#000000", // Black
+          "secondary-content": "#fd9905", // Vibrant orange
+          accent: "#56c5fb", // Bright sky blue
+          "accent-content": "#FFFFFF", // White text content
+          neutral: "#ededed", // Light gray
+          "neutral-content": "#000000", // Black text content
+          "base-100": "#ededed", // Light gray background
+          "base-200": "#e0e0e0", // Slightly darker gray
+          "base-300": "#cfcfcf", // Even darker gray
+          "base-content": "#000000", // Black text content
+          info: "#ffa810", // Vibrant orange
+          success: "#2baceb", // Bright cyan-blue
+          warning: "#ffa810", // Vibrant orange
+          error: "#ffa810", // Vibrant orange
 
           "--rounded-btn": "9999rem",
 
@@ -41,22 +41,22 @@ module.exports = {
       },
       {
         dark: {
-          primary: "#1A1A1D", // Cool black
-          "primary-content": "#D7C7FF", // Very light violet
-          secondary: "#2C2C2C", // Darker grayscale
-          "secondary-content": "#E6E6FF", // Light violet
-          accent: "#7C83DB", // Bright periwinkle/violet
-          "accent-content": "#E6E6FF", // Light violet
+          primary: "#56c5fb", // Bright sky blue
+          "primary-content": "#FFFFFF", // White text content
+          secondary: "#000000", // Black
+          "secondary-content": "#fd9905", // Vibrant orange
+          accent: "#56c5fb", // Bright sky blue
+          "accent-content": "#FFFFFF", // White text content
           neutral: "#444444", // Dark grayscale
-          "neutral-content": "#E6E6FF",
-          "base-100": "#0D0D0D", // Darkest cool black
-          "base-200": "#1A1A1D", // Cool black
-          "base-300": "#2C2C2C", // Darker grayscale
-          "base-content": "#E6E6FF", // Light violet text
-          info: "#7C83DB", // Bright periwinkle/violet for info
-          success: "#34EEB6",
-          warning: "#FFCF72",
-          error: "#FF8863",
+          "neutral-content": "#FFFFFF", // White text content
+          "base-100": "#000000", // Black background
+          "base-200": "#121212", // Slightly lighter black
+          "base-300": "#1a1a1a", // Even lighter black
+          "base-content": "#FFFFFF", // White text content
+          info: "#ffa810", // Vibrant orange
+          success: "#2baceb", // Bright cyan-blue
+          warning: "#ffa810", // Vibrant orange
+          error: "#ffa810", // Vibrant orange
 
           "--rounded-btn": "9999rem",
 
@@ -86,8 +86,8 @@ module.exports = {
         "pulse-fast": "pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
       colors: {
-        'custom-light': '#1A1A1D', // Cool black for light theme text
-        'custom-dark': '#E6E6FF', // Light violet for dark theme text
+        'custom-light': '#000000', // Black for light theme text
+        'custom-dark': '#FFFFFF', // White for dark theme text
       }
     },
   },
