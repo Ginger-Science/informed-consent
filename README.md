@@ -1,11 +1,5 @@
 # Informed Consent Tokens and Dynamic Data Access Mechanisms
 
-This document outlines the concept of using ERC20 tokens, referred to as **Informed Consent Tokens (ICTs)**, as a lightweight, disease-neutral mechanism for managing informed consent in healthcare and research applications. It also explores broader implications for data ownership, patient empowerment, and estate planning. While the primary design assumes these tokens are transferable, the discussion remains open regarding whether they should be nontransferable.
-
----
-
-## The Concept of Informed Consent Tokens (ICTs)
-
 An **Informed Consent Token (ICT)** is an ERC20 token issued to a patient’s wallet upon signing an informed consent agreement. The token functions as a lightweight proof that the patient has granted consent for specific uses of their data. Its disease-neutral design ensures that wallets are not directly associated with Protected Health Information (PHI), reducing privacy risks.
 
 ### Key Features of ICTs
