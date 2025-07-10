@@ -85,6 +85,14 @@ In scenarios where data or consent tokens hold long-term value (e.g., enabling a
 
 Using ERC20-based **Informed Consent Tokens** alongside **Dynamic Reward Boxes** offers a scalable, privacy-preserving framework for managing informed consent and engaging participants in healthcare data systems. The disease-neutral design ensures minimal privacy risks, while the inclusion of reward mechanisms fosters trust and sustained participation.
 
+## TODO:
+
+- Update Page.tsx to reflect Informed Consent Language in /InformedConsent.md
+- Update utilty ERC20 token prototype (Current distribution package uses DSCI demo on Base.)
+- Update vendor contract
+- Deploy on Solana Test Net
+  
+
 The transferability of ICTs remains an open question, with potential benefits for estate handling and usability but concerns about consent integrity and abuse. For now, assuming ICTs are transferable introduces flexibility without significant drawbacks, given their disease-neutral design.
 
 By combining these mechanisms with robust smart contracts and ethical frameworks, the system can empower patients, accelerate innovation, and uphold the highest standards of privacy and consent in decentralized healthcare research.
