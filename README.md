@@ -79,10 +79,6 @@ In scenarios where data or consent tokens hold long-term value (e.g., enabling a
 ### Fair Compensation
 - Patients should be fairly rewarded for their data contributions, whether through tokens, monetary incentives, or early access to treatments.
 
----
-
-## Conclusion
-
 Using ERC20-based **Informed Consent Tokens** alongside **Dynamic Reward Boxes** offers a scalable, privacy-preserving framework for managing informed consent and engaging participants in healthcare data systems. The disease-neutral design ensures minimal privacy risks, while the inclusion of reward mechanisms fosters trust and sustained participation.
 
 ## TODO:
